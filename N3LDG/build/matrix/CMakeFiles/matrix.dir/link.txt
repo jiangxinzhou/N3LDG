@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libmatrix.a  CMakeFiles/matrix.dir/cpu_matrix.cc.o CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o
+/usr/bin/ranlib ../../lib/libmatrix.a
