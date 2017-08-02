@@ -14,10 +14,16 @@
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
 
+#include "include/cnmem.h"
 #include "cpu_matrix.h"
 #include "functors.h"
+#include <assert.h>
 
 #define CCE(x) checkCudaErrors(x)
+
+
+const int THREADS = 128;
+
 
 
 class cpu_matrix;
@@ -34,6 +40,20 @@ public:
 	}
 }; 
 
+void InitGPU(cnmemDevice_t device, int device_id, size_t mem_size);
+void FinalizeGPU();
+
+
+class DEVICE{
+private:
+	cnmemDevice_t device;
+public:
+	static cnmemDevice_t& getInstance(){
+		static DEVICE D;
+		return D.device;
+	}
+};
+
 class gpu_matrix
 {
 // public:
@@ -46,6 +66,7 @@ public:
 	~gpu_matrix();
 	void init(int r, int c);
 	gpu_matrix(dtype* v_data, size_t r, size_t c);
+	void delloc();
 	void resize(int r, int c);
 	// void delloc() { cudaFree(v); }
 	inline void zero() { if(v) cudaMemset((void*)v, 0, size * sizeof(dtype)); }
@@ -83,6 +104,9 @@ public:
 	void dcube(const gpu_matrix &a, const gpu_matrix &b);
 	void activate(const gpu_matrix &rhs, FUNC_TYPE functor);
 	void dactivate(const gpu_matrix &a, const gpu_matrix &b, DFUNC_TYPE functor);
+	void max_pooling(const gpu_matrix &rhs);
+	void min_pooling(const gpu_matrix &rhs);
+	void average_pooling(const gpu_matrix &rhs);
 };
 // template <typename T>
 // gpu_matrix<T> gpu_matrix<T>::operator * (const device_matrix<T>& rhs) const

@@ -1,6 +1,19 @@
 #include "gpu_matrix.h"
 #include <iostream>
 
+void InitGPU(cnmemDevice_t device, int device_id, size_t mem_size)
+{
+	memset(&device, 0, sizeof(device));
+	device.size = mem_size;
+	assert(CNMEM_STATUS_SUCCESS == cnmemInit(1, &device, CNMEM_FLAGS_DEFAULT));
+}
+
+void FinalizeGPU()
+{
+	assert(CNMEM_STATUS_SUCCESS == cnmemFinalize());
+}
+
+
 __global__ inline void naiveMatrixTranspose(dtype *odata, const dtype *idata, const int rows, const int cols) {
 
   int x = blockIdx.x * blockDim.x + threadIdx.x;
@@ -8,6 +21,53 @@ __global__ inline void naiveMatrixTranspose(dtype *odata, const dtype *idata, co
 
   if (x < cols && y < rows)
     odata[x*rows + y] = idata[y*cols+ x];
+}
+
+__global__ inline void max_pooling_kernel(dtype *src, dtype *target, int row, int n){
+	int tid = threadIdx.x + blockIdx.x * blockDim.x;
+	
+	target[tid] = src[tid*row];
+	if(tid < n){
+		for(int i=tid*row+1; i<tid*row+row; i++){
+			target[tid] = (target[tid] >= src[i]) ? target[tid] : src[i];
+		}
+	}
+}
+
+__global__ void min_pooling_kernel(dtype *src, dtype *target, int row, int n){
+	int tid = threadIdx.x + blockIdx.x * blockDim.x;
+	
+	target[tid] = src[tid*row];
+	if(tid < n){
+		for(int i=tid*row+1; i<tid*row+row; i++){
+			target[tid] = (target[tid] <= src[i]) ? target[tid] : src[i];
+		}
+	}
+}
+
+__global__ void average_pooling_kernel(dtype *src, dtype *target, int row, int n){
+	int tid = threadIdx.x + blockIdx.x * blockDim.x;
+	
+	target[tid] = 0;
+	if(tid < n){
+		for(int i=tid*row; i<tid*row+row; i++){
+			target[tid] += src[i];
+		}
+	}
+	target[tid] /= row;
+}
+
+
+void gpu_matrix::max_pooling(const gpu_matrix &rhs){
+	max_pooling_kernel<<<(rhs.col + THREADS - 1)/THREADS, THREADS>>>(rhs.v, v, rhs.row, rhs.size);
+}
+
+void gpu_matrix::min_pooling(const gpu_matrix &rhs){
+	min_pooling_kernel<<<(rhs.col + THREADS - 1)/THREADS, THREADS>>>(rhs.v, v, rhs.row, rhs.size);
+}
+
+void gpu_matrix::average_pooling(const gpu_matrix &rhs){
+	average_pooling_kernel<<<(rhs.col + THREADS - 1)/THREADS, THREADS>>>(rhs.v, v, rhs.row, rhs.size);
 }
 
 void gpu_matrix::transpose(const gpu_matrix &rhs) {
@@ -27,13 +87,19 @@ void gpu_matrix::transpose(){
 }	
 	
 gpu_matrix::~gpu_matrix(){
-	if(v){
-		cudaFree(v);
-	}
-	v = NULL;
+	std::cout << "~" << "\n";
+	delloc();
 	row = 0;
 	col = 0;
 	size = 0;
+}
+
+
+void gpu_matrix::delloc(){
+	if(v){
+		assert(CNMEM_STATUS_SUCCESS == cnmemFree(v, NULL));
+	}
+	v = NULL;
 }
 
 void gpu_matrix::init(int r, int c){
@@ -41,7 +107,8 @@ void gpu_matrix::init(int r, int c){
 	col = c;
 	size = row * col;
 	if(size != 0){
-		CCE(cudaMalloc((void**)&v, sizeof(dtype) * size));
+		assert(CNMEM_STATUS_SUCCESS == cnmemMalloc((void**)&v, sizeof(dtype) * size, NULL));
+		//CCE(cudaMalloc((void**)&v, sizeof(dtype) * size));
 		zero();
 	}
 } 
@@ -59,7 +126,8 @@ void gpu_matrix::resize(int r, int c)
 		return;
 	
 	if(v){
-		cudaFree(v);
+		assert(CNMEM_STATUS_SUCCESS == cnmemFree(v, NULL));
+		v = NULL;
 	}
 
 	init(r, c);
@@ -74,7 +142,6 @@ void gpu_matrix::ones(){
 	for(int i=0; i<size; i++){
 		CCE(cudaMemcpy((v+i), &one, sizeof(dtype), cudaMemcpyHostToDevice));
 	}
-	
 }
 
 gpu_matrix& gpu_matrix::operator=(const gpu_matrix &rhs){

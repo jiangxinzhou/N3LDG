@@ -1535,10 +1535,22 @@ thrust/host_vector.h
 -
 thrust/device_vector.h
 -
+include/cnmem.h
+/data/xzjiang/GPU-study/N3LDG/matrix/include/cnmem.h
 cpu_matrix.h
 /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h
 functors.h
 /data/xzjiang/GPU-study/N3LDG/matrix/functors.h
+assert.h
+-
+
+/data/xzjiang/GPU-study/cnmem/include/cnmem.h
+cstdio
+/data/xzjiang/GPU-study/cnmem/include/cstdio
+stdio.h
+/data/xzjiang/GPU-study/cnmem/include/stdio.h
+cuda_runtime_api.h
+/data/xzjiang/GPU-study/cnmem/include/cuda_runtime_api.h
 
 /usr/local/cuda-8.0/include/builtin_types.h
 device_types.h

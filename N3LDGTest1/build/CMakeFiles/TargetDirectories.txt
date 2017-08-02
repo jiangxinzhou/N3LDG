@@ -1,0 +1,5 @@
+/data/xzjiang/GPU-study/N3LDGTest1/build/CMakeFiles/rebuild_cache.dir
+/data/xzjiang/GPU-study/N3LDGTest1/build/CMakeFiles/edit_cache.dir
+/data/xzjiang/GPU-study/N3LDGTest1/build/new-free-compare/CMakeFiles/rebuild_cache.dir
+/data/xzjiang/GPU-study/N3LDGTest1/build/new-free-compare/CMakeFiles/edit_cache.dir
+/data/xzjiang/GPU-study/N3LDGTest1/build/new-free-compare/CMakeFiles/new-free-compare1.dir

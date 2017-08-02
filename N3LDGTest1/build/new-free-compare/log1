@@ -1,0 +1,2 @@
+cpu-new-free: 3.75805
+new-free-compare: /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.cu:108: void gpu_matrix::init(int, int): Assertion `CNMEM_STATUS_SUCCESS == cnmemMalloc((void**)&v, sizeof(dtype) * size, __null)' failed.

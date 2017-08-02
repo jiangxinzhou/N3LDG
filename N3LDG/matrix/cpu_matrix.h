@@ -39,6 +39,7 @@ public:
 	~cpu_matrix();
 	void init(int r, int c);
 	cpu_matrix(dtype* v_data, size_t r, size_t c);
+	void delloc();
 	void resize(int r, int c);
 	inline void zero() { if(v) memset((void*)v, 0, size * sizeof(dtype)); }
 	void zeros();

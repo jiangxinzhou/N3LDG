@@ -7,8 +7,10 @@ int main()
 {
 	cpu_matrix cA;
 	cA.init(200, 500);
+	cA.random(100);
 	cpu_matrix cB;
 	cB.init(200, 500);
+	cB.random(100);
 	cpu_matrix cC;
 	cC.init(200, 500);
 	

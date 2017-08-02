@@ -13,6 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../matrix"
   "/usr/local/cuda-8.0/samples/common/inc"
   "../eigen"
+  "/data/xzjiang/GPU-study/cnmem"
   "/usr/local/cuda-8.0/include"
   )
 

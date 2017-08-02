@@ -111,32 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named product
-
-# Build rule for target.
-product: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 product
-.PHONY : product
-
-# fast build rule for target.
-product/fast:
-	$(MAKE) -f product/CMakeFiles/product.dir/build.make product/CMakeFiles/product.dir/build
-.PHONY : product/fast
-
-#=============================================================================
-# Target rules for targets named add
-
-# Build rule for target.
-add: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 add
-.PHONY : add
-
-# fast build rule for target.
-add/fast:
-	$(MAKE) -f add/CMakeFiles/add.dir/build.make add/CMakeFiles/add.dir/build
-.PHONY : add/fast
-
-#=============================================================================
 # Target rules for targets named add1
 
 # Build rule for target.
@@ -149,58 +123,6 @@ add1/fast:
 	$(MAKE) -f add1/CMakeFiles/add1.dir/build.make add1/CMakeFiles/add1.dir/build
 .PHONY : add1/fast
 
-#=============================================================================
-# Target rules for targets named multiply
-
-# Build rule for target.
-multiply: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 multiply
-.PHONY : multiply
-
-# fast build rule for target.
-multiply/fast:
-	$(MAKE) -f multiply/CMakeFiles/multiply.dir/build.make multiply/CMakeFiles/multiply.dir/build
-.PHONY : multiply/fast
-
-#=============================================================================
-# Target rules for targets named multiply1
-
-# Build rule for target.
-multiply1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 multiply1
-.PHONY : multiply1
-
-# fast build rule for target.
-multiply1/fast:
-	$(MAKE) -f multiply1/CMakeFiles/multiply1.dir/build.make multiply1/CMakeFiles/multiply1.dir/build
-.PHONY : multiply1/fast
-
-#=============================================================================
-# Target rules for targets named tanh
-
-# Build rule for target.
-tanh: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tanh
-.PHONY : tanh
-
-# fast build rule for target.
-tanh/fast:
-	$(MAKE) -f tanh/CMakeFiles/tanh.dir/build.make tanh/CMakeFiles/tanh.dir/build
-.PHONY : tanh/fast
-
-#=============================================================================
-# Target rules for targets named tanh1
-
-# Build rule for target.
-tanh1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tanh1
-.PHONY : tanh1
-
-# fast build rule for target.
-tanh1/fast:
-	$(MAKE) -f tanh1/CMakeFiles/tanh1.dir/build.make tanh1/CMakeFiles/tanh1.dir/build
-.PHONY : tanh1/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,13 +131,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... product"
-	@echo "... add"
 	@echo "... add1"
-	@echo "... multiply"
-	@echo "... multiply1"
-	@echo "... tanh"
-	@echo "... tanh1"
 .PHONY : help
 
 

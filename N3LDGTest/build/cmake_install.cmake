@@ -34,13 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/product/cmake_install.cmake")
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/add/cmake_install.cmake")
   include("/data/xzjiang/GPU-study/N3LDGTest/build/add1/cmake_install.cmake")
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/multiply/cmake_install.cmake")
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/multiply1/cmake_install.cmake")
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/tanh/cmake_install.cmake")
-  include("/data/xzjiang/GPU-study/N3LDGTest/build/tanh1/cmake_install.cmake")
 
 endif()
 

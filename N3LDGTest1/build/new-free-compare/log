@@ -1,0 +1,11 @@
+cpu-new-free: 75.0883
+gpu-new-free: 9.53165
+cpu-product: 4049.36
+gpu-product: 334.102
+cpu-add: 349.078
+gpu-add: 32.1622
+cpu-multiply: 342.256
+gpu-multiply: 32.0547
+cpu-tanh: 647.188
+gpu-tanh: 21.0593
+new-free-compare: /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.cu:98: void gpu_matrix::delloc(): Assertion `CNMEM_STATUS_SUCCESS == cnmemFree(v, __null)' failed.

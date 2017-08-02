@@ -3,13 +3,17 @@
 #include <iostream>
 
 cpu_matrix::~cpu_matrix(){
+	delloc();
+	row = 0;
+	col = 0;
+	size = 0;
+}
+
+void cpu_matrix::delloc(){
 	if(v){
 		delete[] v;
 	}
 	v = NULL;
-	row = 0;
-	col = 0;
-	size = 0;
 }
 
 void cpu_matrix::init(int r, int c){

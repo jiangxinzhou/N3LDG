@@ -8,16 +8,10 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "../add/CMakeLists.txt"
   "../add1/CMakeLists.txt"
   "CMakeFiles/3.7.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.7.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.7.1/CMakeSystem.cmake"
-  "../multiply/CMakeLists.txt"
-  "../multiply1/CMakeLists.txt"
-  "../product/CMakeLists.txt"
-  "../tanh/CMakeLists.txt"
-  "../tanh1/CMakeLists.txt"
   "/usr/local/share/cmake-3.7/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-3.7/Modules/CMakeCXXInformation.cmake"
   "/usr/local/share/cmake-3.7/Modules/CMakeCommonLanguageInclude.cmake"
@@ -53,22 +47,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "product/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "add/CMakeFiles/CMakeDirectoryInformation.cmake"
   "add1/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "multiply/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "multiply1/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tanh/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tanh1/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "product/CMakeFiles/product.dir/DependInfo.cmake"
-  "add/CMakeFiles/add.dir/DependInfo.cmake"
   "add1/CMakeFiles/add1.dir/DependInfo.cmake"
-  "multiply/CMakeFiles/multiply.dir/DependInfo.cmake"
-  "multiply1/CMakeFiles/multiply1.dir/DependInfo.cmake"
-  "tanh/CMakeFiles/tanh.dir/DependInfo.cmake"
-  "tanh1/CMakeFiles/tanh1.dir/DependInfo.cmake"
   )

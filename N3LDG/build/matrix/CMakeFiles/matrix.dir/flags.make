@@ -6,5 +6,5 @@ CXX_FLAGS =  -fPIC -funroll-loops -fno-finite-math-only -Wall -Wno-missing-brace
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/data/xzjiang/GPU-study/N3LDG/matrix -I/usr/local/cuda-8.0/samples/common/inc -I/data/xzjiang/GPU-study/N3LDG/eigen -isystem /usr/local/cuda-8.0/include 
+CXX_INCLUDES = -I/data/xzjiang/GPU-study/N3LDG/matrix -I/usr/local/cuda-8.0/samples/common/inc -I/data/xzjiang/GPU-study/N3LDG/eigen -I/data/xzjiang/GPU-study/cnmem -isystem /usr/local/cuda-8.0/include 
 

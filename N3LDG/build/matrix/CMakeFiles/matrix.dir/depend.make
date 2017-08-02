@@ -307,6 +307,7 @@ matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: ../matrix/cpu_matrix.cc
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: ../matrix/cpu_matrix.h
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: ../matrix/functors.h
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: ../matrix/gpu_matrix.h
+matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: /data/xzjiang/GPU-study/cnmem/include/cnmem.h
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: /usr/local/cuda-8.0/include/builtin_types.h
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: /usr/local/cuda-8.0/include/channel_descriptor.h
 matrix/CMakeFiles/matrix.dir/cpu_matrix.cc.o: /usr/local/cuda-8.0/include/common_functions.h
