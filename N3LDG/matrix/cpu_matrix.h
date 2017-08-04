@@ -5,6 +5,7 @@
 #include <unsupported/Eigen/CXX11/Tensor>
 #include "gpu_matrix.h"
 #include "functors.h"
+#include <iostream>
 
 class gpu_matrix;
 
@@ -45,6 +46,12 @@ public:
 	void zeros();
 	void ones();
 	void random(dtype bound);
+	void assign(int icol, int jrow, dtype value){
+		v[icol*row +jrow] = value;
+	}
+	dtype get(int icol, int jrow){
+		return v[icol*row + jrow];
+	}
 	cpu_matrix& operator = (const cpu_matrix &rhs);
 	cpu_matrix& operator = (const gpu_matrix &rhs);
 	inline dtype* operator[](const int icol){ return v + icol*row; }
@@ -77,6 +84,9 @@ public:
 	void dcube(const cpu_matrix &a, const cpu_matrix &b);
 	void activate(const cpu_matrix &rhs, FUNC_TYPE functor);
 	void dactivate(const cpu_matrix &a, const cpu_matrix &b, DFUNC_TYPE functor);
+	void display(){
+		std::cout << mat() << "\n" << "\n";
+	}
 	// template<typename CustomUnaryOp>
 	// void unary(const cpu_matrix &rhs, const CustomUnaryOp& op){this->vec() = rhs.vec().unaryExpr(op);} 
 	// template<typename CustomBinaryOp>

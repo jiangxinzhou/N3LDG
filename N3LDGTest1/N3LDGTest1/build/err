@@ -1,0 +1,44 @@
+In file included from /usr/local/cuda-8.0/include/thrust/system/detail/generic/for_each.h:27:0,
+                 from /usr/local/cuda-8.0/include/thrust/detail/for_each.inl:26,
+                 from /usr/local/cuda-8.0/include/thrust/for_each.h:279,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/generic/transform.inl:19,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/generic/transform.h:105,
+                 from /usr/local/cuda-8.0/include/thrust/detail/transform.inl:25,
+                 from /usr/local/cuda-8.0/include/thrust/transform.h:724,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/generic/copy.inl:23,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/generic/copy.h:58,
+                 from /usr/local/cuda-8.0/include/thrust/detail/copy.inl:21,
+                 from /usr/local/cuda-8.0/include/thrust/detail/copy.h:90,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/sequential/merge.inl:19,
+                 from /usr/local/cuda-8.0/include/thrust/system/detail/sequential/merge.h:79,
+                 from /usr/local/cuda-8.0/include/thrust/system/cpp/detail/merge.h:22,
+                 from /usr/local/cuda-8.0/include/thrust/system/cpp/execution_policy.h:51,
+                 from /usr/local/cuda-8.0/include/thrust/execution_policy.h:30,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:11,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:6,
+                 from /data/xzjiang/GPU-study/N3LDGTest1/new-free-compare/example1.cpp:1:
+/usr/local/cuda-8.0/include/thrust/system/detail/generic/for_each.h: In instantiation of ‘RandomAccessIterator thrust::system::cuda::detail::for_each_n(thrust::system::cuda::detail::execution_policy<System1>&, RandomAccessIterator, Size, UnaryFunction) [with DerivedPolicy = thrust::system::cuda::detail::tag; RandomAccessIterator = thrust::device_ptr<double>; Size = long unsigned int; UnaryFunction = thrust::detail::device_generate_functor<thrust::detail::fill_functor<double> >]’:
+/usr/local/cuda-8.0/include/thrust/detail/for_each.inl:71:97:   required from ‘InputIterator thrust::for_each_n(const thrust::detail::execution_policy_base<DerivedPolicy>&, InputIterator, Size, UnaryFunction) [with DerivedPolicy = thrust::system::cuda::detail::tag; InputIterator = thrust::device_ptr<double>; Size = long unsigned int; UnaryFunction = thrust::detail::device_generate_functor<thrust::detail::fill_functor<double> >]’
+/usr/local/cuda-8.0/include/thrust/system/detail/generic/generate.inl:54:124:   required from ‘OutputIterator thrust::system::detail::generic::generate_n(thrust::execution_policy<Derived>&, OutputIterator, Size, Generator) [with ExecutionPolicy = thrust::system::cuda::detail::tag; OutputIterator = thrust::device_ptr<double>; Size = long unsigned int; Generator = thrust::detail::fill_functor<double>]’
+/usr/local/cuda-8.0/include/thrust/detail/generate.inl:60:99:   required from ‘OutputIterator thrust::generate_n(const thrust::detail::execution_policy_base<DerivedPolicy>&, OutputIterator, Size, Generator) [with DerivedPolicy = thrust::system::cuda::detail::tag; OutputIterator = thrust::device_ptr<double>; Size = long unsigned int; Generator = thrust::detail::fill_functor<double>]’
+/usr/local/cuda-8.0/include/thrust/system/detail/generic/fill.h:41:83:   required from ‘OutputIterator thrust::system::detail::generic::fill_n(thrust::execution_policy<Derived>&, OutputIterator, Size, const T&) [with DerivedPolicy = thrust::system::cuda::detail::tag; OutputIterator = thrust::device_ptr<double>; Size = long unsigned int; T = double]’
+/usr/local/cuda-8.0/include/thrust/detail/fill.inl:54:97:   required from ‘OutputIterator thrust::fill_n(const thrust::detail::execution_policy_base<DerivedPolicy>&, OutputIterator, Size, const T&) [with DerivedPolicy = thrust::system::cuda::detail::tag; OutputIterator = thrust::device_ptr<double>; Size = long unsigned int; T = double]’
+/usr/local/cuda-8.0/include/thrust/system/detail/generic/uninitialized_fill.inl:74:42:   [ skipping 4 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/cuda-8.0/include/thrust/detail/allocator/default_construct_range.inl:105:64:   required from ‘void thrust::detail::default_construct_range(Allocator&, Pointer, Size) [with Allocator = thrust::device_malloc_allocator<double>; Pointer = thrust::device_ptr<double>; Size = long unsigned int]’
+/usr/local/cuda-8.0/include/thrust/detail/contiguous_storage.inl:194:55:   required from ‘void thrust::detail::contiguous_storage<T, Alloc>::default_construct_n(thrust::detail::contiguous_storage<T, Alloc>::iterator, thrust::detail::contiguous_storage<T, Alloc>::size_type) [with T = double; Alloc = thrust::device_malloc_allocator<double>; thrust::detail::contiguous_storage<T, Alloc>::iterator = thrust::detail::normal_iterator<thrust::device_ptr<double> >; typename thrust::detail::allocator_traits<Alloc>::pointer = thrust::device_ptr<double>; thrust::detail::contiguous_storage<T, Alloc>::size_type = long unsigned int]’
+/usr/local/cuda-8.0/include/thrust/detail/vector_base.inl:151:5:   required from ‘void thrust::detail::vector_base<T, Alloc>::default_init(thrust::detail::vector_base<T, Alloc>::size_type) [with T = double; Alloc = thrust::device_malloc_allocator<double>; thrust::detail::vector_base<T, Alloc>::size_type = long unsigned int]’
+/usr/local/cuda-8.0/include/thrust/detail/vector_base.inl:56:17:   required from ‘thrust::detail::vector_base<T, Alloc>::vector_base(thrust::detail::vector_base<T, Alloc>::size_type) [with T = double; Alloc = thrust::device_malloc_allocator<double>; thrust::detail::vector_base<T, Alloc>::size_type = long unsigned int]’
+/usr/local/cuda-8.0/include/thrust/device_vector.h:85:16:   required from ‘thrust::device_vector<T, Alloc>::device_vector(thrust::device_vector<T, Alloc>::size_type) [with T = double; Alloc = thrust::device_malloc_allocator<double>; thrust::device_vector<T, Alloc>::size_type = long unsigned int]’
+/data/xzjiang/GPU-study/N3LDGTest1/new-free-compare/example1.cpp:52:39:   required from here
+/usr/local/cuda-8.0/include/thrust/system/detail/generic/for_each.h:49:3: error: invalid application of ‘sizeof’ to incomplete type ‘thrust::detail::STATIC_ASSERTION_FAILURE<false>’
+   THRUST_STATIC_ASSERT( (thrust::detail::depend_on_instantiation<InputIterator, false>::value) );
+   ^
+In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:8:0,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:6,
+                 from /data/xzjiang/GPU-study/N3LDGTest1/new-free-compare/example1.cpp:1:
+/usr/local/cuda-8.0/samples/common/inc/helper_cuda.h:295:20: warning: ‘const char* _cudaGetErrorEnum(CUresult)’ defined but not used [-Wunused-function]
+ static const char *_cudaGetErrorEnum(CUresult error)
+                    ^
+make[2]: *** [new-free-compare/CMakeFiles/new-free-compare1.dir/example1.cpp.o] Error 1
+make[1]: *** [new-free-compare/CMakeFiles/new-free-compare1.dir/all] Error 2
+make: *** [all] Error 2

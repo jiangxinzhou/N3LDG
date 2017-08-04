@@ -1,0 +1,5 @@
+cpu2gpu: 15.6886
+gpu2cpu: 19.9186
+cpu2cpu: 5.80291
+gpu2gpu: 1.25409
+(device2device)gpu2gpu: 1.14156

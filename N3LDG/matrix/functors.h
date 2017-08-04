@@ -44,6 +44,14 @@ struct dActivate{
 	} 
 };
 
+struct Assign{
+	dtype _a;
+	Assign(dtype a) : _a(a) {}
+	__host__ __device__ inline dtype operator()(const dtype &x) const {
+		return _a;
+	}
+};
+
 
 struct Tanh{ 
 __host__ __device__ inline dtype operator()(const dtype& x) const { 
@@ -132,5 +140,7 @@ __host__ __device__ inline dtype operator()(const dtype& x, const dtype& y) cons
 		return 3*x*x; 
 	} 
 };
+
+
 
 #endif
