@@ -1,0 +1,15 @@
+count: 10000
+dm1: 300 dm2: 10000 dm3: 400
+cpu_test_zeros: 28.3918
+cpu_test_ones: 30.7888
+cpu_test_assign_one_value: 1.23e-07
+cpu_test_get_one_value: 1.05e-07
+cpu-transpose: 140.917
+cpu_add: 68.2813
+cpu_sub: 67.6934
+cpu_multiply: 68.6743
+cpu_divide: 67.9728
+cpu_self_add: 48.8897
+cpu_self_sub: 49.4552
+cpu_self_multiply: 49.0004
+cpu_self_divide: 51.3116

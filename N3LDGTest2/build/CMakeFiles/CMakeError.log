@@ -1,0 +1,102 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d1e92/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d1e92.dir/build.make CMakeFiles/cmTC_d1e92.dir/build
+make[1]: Entering directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d1e92.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_d1e92.dir/CheckSymbolExists.c.o   -c /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d1e92
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1e92.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_d1e92.dir/CheckSymbolExists.c.o  -o cmTC_d1e92 -rdynamic 
+CMakeFiles/cmTC_d1e92.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_d1e92] Error 1
+make[1]: Leaving directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_d1e92/fast] Error 2
+
+File /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4037a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4037a.dir/build.make CMakeFiles/cmTC_4037a.dir/build
+make[1]: Entering directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4037a.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4037a.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4037a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4037a.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_4037a.dir/CheckFunctionExists.c.o  -o cmTC_4037a -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_4037a] Error 1
+make[1]: Leaving directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4037a/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2b48c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2b48c.dir/build.make CMakeFiles/cmTC_2b48c.dir/build
+make[1]: Entering directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2b48c.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_2b48c.dir/CheckSymbolExists.c.o   -c /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2b48c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b48c.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_2b48c.dir/CheckSymbolExists.c.o  -o cmTC_2b48c -rdynamic 
+CMakeFiles/cmTC_2b48c.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_2b48c] Error 1
+make[1]: Leaving directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_2b48c/fast] Error 2
+
+File /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_685ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_685ca.dir/build.make CMakeFiles/cmTC_685ca.dir/build
+make[1]: Entering directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_685ca.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_685ca.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_685ca
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_685ca.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_685ca.dir/CheckFunctionExists.c.o  -o cmTC_685ca -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_685ca] Error 1
+make[1]: Leaving directory `/data/xzjiang/GPU-study/N3LDGTest2/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_685ca/fast] Error 2
+
+
