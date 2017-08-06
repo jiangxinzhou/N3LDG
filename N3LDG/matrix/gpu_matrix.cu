@@ -1,7 +1,5 @@
 #include "gpu_matrix.h"
 
-
-
 // inline int find_gpu_has_most_free_space(){
 	// int nDevices;
 	// int device_id_max_free_space = 0;
@@ -44,6 +42,12 @@ __global__ inline void naiveMatrixTranspose(dtype *odata, const dtype *idata, co
 
   if (x < cols && y < rows)
     odata[x*rows + y] = idata[y*cols+ x];
+}
+
+void gpu_matrix::random(dtype bound){
+	thrust::counting_iterator<unsigned int> index_sequence_begin(0);
+	thrust::device_ptr<dtype> ptr(v);
+	thrust::transform(index_sequence_begin, index_sequence_begin + size, ptr, gRand(-bound, bound));
 }
 
 // __global__ inline void max_pooling_kernel(dtype *src, dtype *target, int row, int n){
@@ -103,13 +107,14 @@ void gpu_matrix::transpose(const gpu_matrix &rhs) {
 	naiveMatrixTranspose<<<grid, threads>>>(v, rhs.v, row, col);
 }
 
-void gpu_matrix::transpose(){
-	gpu_matrix rhs;
-	rhs = *this;
-	this->transpose(rhs);
-}	
+// void gpu_matrix::transpose(){
+	// gpu_matrix rhs;
+	// rhs = *this;
+	// this->transpose(rhs);
+// }	
 	
 gpu_matrix::~gpu_matrix(){
+	delloc();
 	row = 0;
 	col = 0;
 	size = 0;
@@ -157,10 +162,12 @@ void gpu_matrix::zeros(){
 }
 
 void gpu_matrix::ones(){
-	dtype one = 1.0;
-	for(int i=0; i<size; i++){
-		CCE(cudaMemcpy((v+i), &one, sizeof(dtype), cudaMemcpyHostToDevice));
-	}
+	// dtype one = 1.0;
+	// for(int i=0; i<size; i++){
+		// CCE(cudaMemcpy((v+i), &one, sizeof(dtype), cudaMemcpyHostToDevice));
+	// }
+	thrust::device_ptr<dtype> ptr_a(v);
+	thrust::transform(ptr_a, ptr_a + row * col, ptr_a, Assign(1));
 }
 
 gpu_matrix& gpu_matrix::operator=(const gpu_matrix &rhs){
@@ -368,7 +375,7 @@ void gpu_matrix::dcube(const gpu_matrix &a, const gpu_matrix &b){
 	thrust::transform(ptr_b, ptr_b + row * col, ptr_c, ptr_a, dCube());
 }
 
-void gpu_matrix::dropout(const gpu_matrix &rhs, gpu_matrix &drop_mask, double drop_value, int seed){
+void gpu_matrix::dropout(const gpu_matrix &rhs, gpu_matrix &drop_mask, dtype drop_value, int seed){
 	thrust::counting_iterator<unsigned int> index_sequence_begin(seed);
 	thrust::device_ptr<dtype> ptr(drop_mask.v);
 	thrust::transform(index_sequence_begin, index_sequence_begin + rhs.size, ptr, prg(0.0, 1.0, drop_value));
@@ -430,3 +437,16 @@ void min_pooling_helper(vector<gpu_matrix> &ins, vector<gpu_matrix> &mask){
 		mask[min_iter].assign(0, i, 1.0);
 	}
 }
+
+
+void gpu_matrix::concat(const vector<gpu_matrix> &rhs_vec){
+		thrust::device_ptr<dtype> ptr_a(v);
+		
+		assert(col == rhs_vec.size());
+		assert(row == rhs_vec[0].size);
+		for(int i=0; i<col; i++){
+			thrust::device_ptr<dtype> ptr_b(rhs_vec[i].v);
+			//CCE(cudaMemcpy(v + i*row, rhs_vec[i].v, sizeof(dtype) * row, cudaMemcpyDeviceToDevice));
+			thrust::transform(ptr_b, ptr_b + row, ptr_a + i*row, Assignab());
+		}
+	}

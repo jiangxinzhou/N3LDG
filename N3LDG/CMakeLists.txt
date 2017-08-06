@@ -23,6 +23,7 @@ if(USE_FLOAT)
 endif()
 
 if(USE_CUDA)
+  add_definitions(-DUSE_GPU)
   find_package(CUDA REQUIRED)
   set(CUDA_TOOLKIT_ROOT_DIR ${CUDA_ROOT})
   message("CUDA_INCLUDE: " ${CUDA_INCLUDE_DIRS})

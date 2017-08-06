@@ -49,7 +49,7 @@ public:
 	}
 }; 
 
-void InitGPU(cnmemDevice_t &device, size_t mem_size = 1024, int device_id = 0);
+void InitGPU(cnmemDevice_t &device, size_t mem_size = 1000000000, int device_id = 0);
 void FinalizeGPU();
 
 
@@ -77,7 +77,7 @@ struct prg
         dtype operator()(const unsigned int n) const
         {
             thrust::default_random_engine rng;
-            thrust::uniform_real_distribution<double> dist(a, b);
+            thrust::uniform_real_distribution<dtype> dist(a, b);
             rng.discard(n);
 			
 			if(dist(rng) <= dp_val)
@@ -86,6 +86,26 @@ struct prg
 				return 1;
         }
 };
+
+struct gRand
+{
+    dtype a, b;
+
+    __host__ __device__
+    gRand(dtype _a=0.0, dtype _b=1.0) : a(_a), b(_b) {}
+
+	
+    __host__ __device__ inline
+        dtype operator()(const unsigned int n) const
+        {
+            thrust::default_random_engine rng;
+            thrust::uniform_real_distribution<dtype> dist(a, b);
+            rng.discard(n);
+			
+			return dist(rng);
+        }
+};
+
 
 class gpu_matrix
 {
@@ -119,7 +139,7 @@ public:
 	inline dtype* operator[](const int icol){ return v + icol*row; }
 	inline const dtype* operator[](const int icol)const{ return v+icol*row; }
 	void transpose(const gpu_matrix &rhs); 
-	void transpose();
+	// void transpose();
 	void add(const gpu_matrix &a, const gpu_matrix &b);
 	void sub(const gpu_matrix &a, const gpu_matrix &b);
 	void multiply(const gpu_matrix &a, const gpu_matrix &b);
@@ -150,7 +170,7 @@ public:
 	// void min_pooling(const gpu_matrix &rhs);
 	// void average_pooling(const gpu_matrix &rhs);
 	
-	void dropout(const gpu_matrix &rhs, gpu_matrix &drop_mask, double drop_value, int seed);
+	void dropout(const gpu_matrix &rhs, gpu_matrix &drop_mask, dtype drop_value, int seed);
 	void assign(dtype scale);
 	void lookup(const gpu_matrix &E, int idx){
 		assert(E.row == size);
@@ -166,15 +186,11 @@ public:
 			std::cout << "\n";
 		}
 		std::cout << "\n";
+		
+		delete[] tv;
 	};
 	
-	void concat(const vector<gpu_matrix> &rhs_vec){
-		assert(col == rhs_vec.size());
-		assert(row == rhs_vec[0].size);
-		for(int i=0; i<col; i++){
-			CCE(cudaMemcpy(v + i*row, rhs_vec[i].v, sizeof(dtype) * row, cudaMemcpyDeviceToDevice));
-		}
-	}
+	void concat(const vector<gpu_matrix> &rhs_vec);
 };
 
 void max_pooling_helper(vector<gpu_matrix> &ins, vector<gpu_matrix> &mask);

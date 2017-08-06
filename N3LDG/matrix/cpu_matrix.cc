@@ -35,34 +35,19 @@ cpu_matrix::cpu_matrix(dtype* v_data, size_t r, size_t c){
   memcpy(v, v_data, sizeof(dtype) * row * col);
 }
 
-void cpu_matrix::resize(int r, int c){
-	if(row == r && col == c)
-		return;
-	
-	if(v){
-		delete[] v;
-	}
-	init(r, c);
+#if USE_GPU
+cpu_matrix& cpu_matrix::operator = (const gpu_matrix &rhs){
+		resize(rhs.row, rhs.col);
+		CCE(cudaMemcpy(v, rhs.v, row * col * sizeof(dtype), cudaMemcpyDeviceToHost));
+		return *this;
 }
+#endif
 
 cpu_matrix& cpu_matrix::operator = (const cpu_matrix &rhs){
 	resize(rhs.row, rhs.col);
 	memcpy(v, rhs.v, sizeof(dtype) * size);
 	return *this;
 }
-
-cpu_matrix& cpu_matrix::operator = (const gpu_matrix &rhs){
-	resize(rhs.row, rhs.col);
-	CCE(cudaMemcpy(v, rhs.v, row * col * sizeof(dtype), cudaMemcpyDeviceToHost));
-	return *this;
-}
-//cpu_matrix cpu_matrix::operator + (const cpu_matrix &rhs) const{
-//	std::cout << "+" << "\n";
-//	cpu_matrix res(row, col);
-//	res.mat() = this->mat() + rhs.mat();
-//	
-//	return res;
-//}
 
 
 void cpu_matrix::zeros(){
@@ -86,9 +71,9 @@ void cpu_matrix::transpose(const cpu_matrix &rhs) {
 	this->mat() = rhs.mat().transpose();
 }
 
-void cpu_matrix::transpose() { 
-	this->mat() = this->mat().transpose(); 
-}
+// void cpu_matrix::transpose() { 
+	// this->mat() = this->mat().transpose(); 
+// }
 
 void cpu_matrix::add(const cpu_matrix &a, const cpu_matrix &b){
 	this->mat() = a.mat() + b.mat();
@@ -165,4 +150,34 @@ void cpu_matrix::activate(const cpu_matrix &rhs, FUNC_TYPE functor){
 
 void cpu_matrix::dactivate(const cpu_matrix &a, const cpu_matrix &b, DFUNC_TYPE functor){
 	this->vec() = a.vec().binaryExpr(b.vec(), dActivate(functor));
+}
+
+void max_pooling_helper(vector<cpu_matrix> &ins, vector<cpu_matrix> &mask){
+	int dim = ins[0].size;
+	int size = ins.size();
+	
+	for(int i=0; i<dim; i++){
+		int max_iter = -1;
+		for(int j=0; j<size; j++){
+			if((max_iter == -1) || (ins[j].get(0, i)) > ins[max_iter].get(0, i)){
+				max_iter = j;
+			}
+		}
+		mask[max_iter].assign(0, i, 1.0);
+	}
+}
+
+void min_pooling_helper(vector<cpu_matrix> &ins, vector<cpu_matrix> &mask){
+	int dim = ins[0].size;
+	int size = ins.size();
+	
+	for(int i=0; i<dim; i++){
+		int min_iter = -1;
+		for(int j=0; j<size; j++){
+			if((min_iter == -1) || (ins[j].get(0, i)) < ins[min_iter].get(0, i)){
+				min_iter = j;
+			}
+		}
+		mask[min_iter].assign(0, i, 1.0);
+	}
 }

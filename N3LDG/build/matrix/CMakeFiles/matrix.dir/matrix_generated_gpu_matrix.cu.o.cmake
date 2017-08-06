@@ -78,7 +78,7 @@ set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;--std;c++11) # list
 set(CUDA_NVCC_INCLUDE_DIRS "/usr/local/cuda-8.0/include;/data/xzjiang/GPU-study/N3LDG/matrix;/usr/local/cuda-8.0/samples/common/inc;/data/xzjiang/GPU-study/N3LDG/eigen;/data/xzjiang/GPU-study/cnmem;/usr/local/cuda-8.0/include") # list (needs to be in quotes to handle spaces properly).
-set(CUDA_NVCC_COMPILE_DEFINITIONS "") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_COMPILE_DEFINITIONS "USE_GPU") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 set(cuda_language_flag ) # list
 

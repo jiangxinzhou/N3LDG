@@ -1,0 +1,30 @@
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Core:261,
+                 from /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Dense:1,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:4,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.cc:1:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h: In member function ‘void cpu_matrix::concat(const std::vector<cpu_matrix>&)’:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:142:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   assert(col == rhs_vec.size());
+                              ^
+In file included from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.cc:1:0:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h: In constructor ‘cpu_matrix::cpu_matrix()’:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:56:16: warning: ‘cpu_matrix::size’ will be initialized after [-Wreorder]
+  int row, col, size;
+                ^
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:55:9: warning:   ‘dtype* cpu_matrix::v’ [-Wreorder]
+  dtype *v;
+         ^
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.cc:30:1: warning:   when initialized here [-Wreorder]
+ cpu_matrix::cpu_matrix() : row(0), col(0), size(0), v(NULL){}
+ ^
+In file included from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:8:0,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.cc:1:
+/data/xzjiang/GPU-study/N3LDG/matrix/functors.h: In member function ‘dtype Activate::operator()(const dtype&) const’:
+/data/xzjiang/GPU-study/N3LDG/matrix/functors.h:30:2: warning: control reaches end of non-void function [-Wreturn-type]
+  } 
+  ^
+/data/xzjiang/GPU-study/N3LDG/matrix/functors.h: In member function ‘dtype dActivate::operator()(const dtype&, const dtype&) const’:
+/data/xzjiang/GPU-study/N3LDG/matrix/functors.h:50:2: warning: control reaches end of non-void function [-Wreturn-type]
+  } 
+  ^
