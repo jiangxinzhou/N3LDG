@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+../cnmem/include/cnmem.h
+cstdio
+../cnmem/include/cstdio
+stdio.h
+../cnmem/include/stdio.h
+cuda_runtime_api.h
+../cnmem/include/cuda_runtime_api.h
+
 ../eigen/Eigen/Cholesky
 Core
 ../eigen/Eigen/Core
@@ -1561,14 +1569,6 @@ iostream
 -
 vector
 -
-
-/data/xzjiang/GPU-study/cnmem/include/cnmem.h
-cstdio
-/data/xzjiang/GPU-study/cnmem/include/cstdio
-stdio.h
-/data/xzjiang/GPU-study/cnmem/include/stdio.h
-cuda_runtime_api.h
-/data/xzjiang/GPU-study/cnmem/include/cuda_runtime_api.h
 
 /usr/local/cuda-8.0/include/builtin_types.h
 device_types.h

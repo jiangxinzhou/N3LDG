@@ -264,6 +264,9 @@ N3LDG_TEST_SOURCE_DIR:STATIC=/data/xzjiang/GPU-study/N3LDGTest2
 //No help, variable specified on the command line.
 N3L_DIR:UNINITIALIZED=/data/xzjiang/GPU-study/N3LDG
 
+//No help, variable specified on the command line.
+USE_CUDA:UNINITIALIZED=1
+
 
 ########################
 # INTERNAL cache entries

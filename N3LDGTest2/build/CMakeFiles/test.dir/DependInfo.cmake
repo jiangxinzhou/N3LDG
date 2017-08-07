@@ -9,13 +9,18 @@ set(CMAKE_DEPENDS_CHECK_CXX
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "USE_GPU"
+  )
+
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/cuda-8.0/samples/common/inc"
+  "/data/xzjiang/GPU-study/N3LDG/cnmem"
   "/data/xzjiang/GPU-study/N3LDG/core"
   "/data/xzjiang/GPU-study/N3LDG/eigen"
   "/data/xzjiang/GPU-study/N3LDG/matrix"
-  "/data/xzjiang/GPU-study/cnmem"
   "/usr/local/cuda-8.0/include"
   )
 

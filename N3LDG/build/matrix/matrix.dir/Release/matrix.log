@@ -1,0 +1,19 @@
+﻿生成启动时间为 2017/8/6 11:31:34。
+     1>项目“F:\git-reposity\N3LDG\N3LDG\build\matrix\matrix.vcxproj”在节点 2 上(Build 个目标)。
+     1>CustomBuild:
+         Building Custom Rule F:/git-reposity/N3LDG/N3LDG/matrix/CMakeLists.txt
+         CMake does not need to re-run because F:/git-reposity/N3LDG/N3LDG/build/matrix/CMakeFiles/generate.stamp is up-to-date.
+       ClCompile:
+         E:\vs2012\VC\bin\CL.exe /c /I"F:\git-reposity\N3LDG\N3LDG\matrix" /I"\usr\local\cuda-8.0\samples\common\inc" /I"F:\git-reposity\N3LDG\N3LDG\eigen" /I"E:\git-bash\Git\data\xzjiang\GPU-study\cnmem" /nologo /W1 /WX- /MP /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"matrix.dir\Release\\" /Fd"matrix.dir\Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "F:\git-reposity\N3LDG\N3LDG\matrix\cpu_matrix.cc"
+         cpu_matrix.cc
+     1>f:\git-reposity\n3ldg\n3ldg\eigen\eigen\src/Core/arch/CUDA/Half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>f:\git-reposity\n3ldg\n3ldg\matrix\functors.h(30): warning C4715: “Activate::operator()”: 不是所有的控件路径都返回值
+     1>f:\git-reposity\n3ldg\n3ldg\matrix\functors.h(50): warning C4715: “dActivate::operator()”: 不是所有的控件路径都返回值
+       Lib:
+         E:\vs2012\VC\bin\Lib.exe /OUT:"F:\git-reposity\N3LDG\N3LDG\lib\Release\matrix.lib" /NOLOGO   /machine:X86 matrix.dir\Release\cpu_matrix.obj
+         matrix.vcxproj -> F:\git-reposity\N3LDG\N3LDG\lib\Release\matrix.lib
+     1>已完成生成项目“F:\git-reposity\N3LDG\N3LDG\build\matrix\matrix.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.51

@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+F:/git-reposity/N3LDG/N3LDGTest2/CMakeLists.txt
+F:/git-reposity/N3LDG/N3LDGTest2/build/CMakeFiles/3.8.2/CMakeSystem.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeSystemSpecificInitialize.cmake
+F:/git-reposity/N3LDG/N3LDGTest2/build/CMakeFiles/3.8.2/CMakeCCompiler.cmake
+F:/git-reposity/N3LDG/N3LDGTest2/build/CMakeFiles/3.8.2/CMakeCXXCompiler.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeSystemSpecificInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeGenericSystem.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/Windows.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/WindowsPaths.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/Windows-MSVC-C.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/Windows-MSVC.cmake
+F:/git-reposity/N3LDG/N3LDGTest2/build/CMakeFiles/3.8.2/CMakeRCCompiler.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeRCInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCXXInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Compiler/MSVC-CXX.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/Windows-MSVC-CXX.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/Platform/Windows-MSVC.cmake
+E:/cmake-3.8.2/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake

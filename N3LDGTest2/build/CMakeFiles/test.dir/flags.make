@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -fPIC -funroll-loops -fno-finite-math-only -Wall -Wno-missing-braces -std=c++11 -Ofast -g -march=native  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DUSE_GPU
 
-CXX_INCLUDES = -I/usr/local/cuda-8.0/samples/common/inc -I/data/xzjiang/GPU-study/N3LDG/core -I/data/xzjiang/GPU-study/N3LDG/eigen -I/data/xzjiang/GPU-study/N3LDG/matrix -I/data/xzjiang/GPU-study/cnmem -isystem /usr/local/cuda-8.0/include 
+CXX_INCLUDES = -I/usr/local/cuda-8.0/samples/common/inc -I/data/xzjiang/GPU-study/N3LDG/cnmem -I/data/xzjiang/GPU-study/N3LDG/core -I/data/xzjiang/GPU-study/N3LDG/eigen -I/data/xzjiang/GPU-study/N3LDG/matrix -isystem /usr/local/cuda-8.0/include 
 

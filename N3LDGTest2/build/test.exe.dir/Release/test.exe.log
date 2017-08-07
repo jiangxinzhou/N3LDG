@@ -1,0 +1,20 @@
+﻿生成启动时间为 2017/8/6 12:07:48。
+     1>项目“F:\git-reposity\N3LDG\N3LDGTest2\build\test.exe.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>CustomBuild:
+         Building Custom Rule F:/git-reposity/N3LDG/N3LDGTest2/CMakeLists.txt
+         CMake does not need to re-run because F:/git-reposity/N3LDG/N3LDGTest2/build/CMakeFiles/generate.stamp is up-to-date.
+       ClCompile:
+         E:\vs2012\VC\bin\CL.exe /c /I"F:\git-reposity\N3LDG\N3LDG\eigen" /I"F:\git-reposity\N3LDG\N3LDG\matrix" /nologo /W1 /WX- /MP /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"test.exe.dir\Release\\" /Fd"test.exe.dir\Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "F:\git-reposity\N3LDG\N3LDGTest2\test.cc" "F:\git-reposity\N3LDG\N3LDGTest2\main.cc"
+         test.cc
+         main.cc
+     1>f:\git-reposity\n3ldg\n3ldg\eigen\eigen\src/Core/arch/CUDA/Half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (F:\git-reposity\N3LDG\N3LDGTest2\test.cc)
+     1>f:\git-reposity\n3ldg\n3ldg\eigen\eigen\src/Core/arch/CUDA/Half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (F:\git-reposity\N3LDG\N3LDGTest2\main.cc)
+       Link:
+         E:\vs2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\git-reposity\N3LDG\N3LDGTest2\build\Release\test.exe.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "F:\git-reposity\N3LDG\N3LDG\lib\Release\matrix.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"F:/git-reposity/N3LDG/N3LDGTest2/build/Release/test.exe.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:/git-reposity/N3LDG/N3LDGTest2/build/Release/test.exe.lib" /MACHINE:X86 /SAFESEH   /machine:X86 test.exe.dir\Release\test.obj
+         test.exe.dir\Release\main.obj
+         test.exe.vcxproj -> F:\git-reposity\N3LDG\N3LDGTest2\build\Release\test.exe.exe
+     1>已完成生成项目“F:\git-reposity\N3LDG\N3LDGTest2\build\test.exe.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.52

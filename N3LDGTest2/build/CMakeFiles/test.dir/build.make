@@ -117,7 +117,7 @@ test: CMakeFiles/test.dir/test.cc.o
 test: CMakeFiles/test.dir/main.cc.o
 test: CMakeFiles/test.dir/build.make
 test: /data/xzjiang/GPU-study/N3LDG/lib/libmatrix.a
-test: /data/xzjiang/GPU-study/cnmem/build/libcnmem.so
+test: /data/xzjiang/GPU-study/N3LDG/cnmem/build/libcnmem.so
 test: /usr/local/cuda-8.0/lib64/libcudart_static.a
 test: /usr/lib/x86_64-linux-gnu/librt.so
 test: /usr/local/cuda-8.0/lib64/libcublas.so

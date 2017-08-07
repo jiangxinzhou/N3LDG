@@ -16,6 +16,7 @@ void test_zeros(bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#if USE_GPU
 	else{
 		cout << "this is gpu zeros:" << endl;
 		gpu_matrix a;
@@ -30,6 +31,7 @@ void test_zeros(bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#endif
 }
 
 void test_ones(bool is_cpu){
@@ -47,6 +49,7 @@ void test_ones(bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#if USE_GPU
 	else{
 		cout << "this is gpu ones:" << endl;
 		gpu_matrix a;
@@ -61,6 +64,7 @@ void test_ones(bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#endif
 }
 
 void test_assign(int icol, int jrow, dtype value, bool is_cpu){
@@ -79,6 +83,7 @@ void test_assign(int icol, int jrow, dtype value, bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#if USE_GPU
 	else{
 		cout << "this is gpu assign:" << endl;
 		cout << "icol:" << icol << " " << "jrow:" << jrow << " " << "value:" << value << endl;
@@ -94,6 +99,7 @@ void test_assign(int icol, int jrow, dtype value, bool is_cpu){
 		cout << "after" << endl;
 		a.display();
 	}
+#endif
 }
 
 void test_get(int icol, int jrow, bool is_cpu){
@@ -112,6 +118,7 @@ void test_get(int icol, int jrow, bool is_cpu){
 		cout << "after" << endl;
 		cout << "value" << value << endl;
 	}
+#if USE_GPU
 	else{
 		cout << "this is gpu get:" << endl;
 		cout << "icol:" << icol << " " << "jrow:" << jrow << endl;
@@ -126,9 +133,11 @@ void test_get(int icol, int jrow, bool is_cpu){
 		cout << "after" << endl;
 		cout << "value" << value << endl;
 	}
+#endif
 }
 
 void test_op_equal(){
+#if USE_GPU
 	if(true){
 		cout << "this is cpu_matrix = gpu_matrix:" << endl;
 		cpu_matrix a;
@@ -148,6 +157,7 @@ void test_op_equal(){
 		cout << "cpu_matrix: \n" << endl; a.display();
 	}
 	
+	
 	if(true){
 		cout << "this is gpu_matrix = cpu_matrix:" << endl;
 		gpu_matrix a;
@@ -165,6 +175,7 @@ void test_op_equal(){
 		a = b;
 		cout << "gpu_matrix: \n" << endl; a.display();
 	}
+#endif
 	
 	if(true){
 		cout << "this is cpu_matrix = cpu_matrix:" << endl;
@@ -185,6 +196,7 @@ void test_op_equal(){
 		cout << "cpu_matrix b: \n" << endl; a.display();
 	}
 	
+#if USE_GPU
 	if(true){
 		cout << "this is gpu_matrix = gpu_matrix:" << endl;
 		gpu_matrix a;
@@ -203,6 +215,7 @@ void test_op_equal(){
 		a = b;
 		cout << "gpu_matrix b: \n" << endl; a.display();
 	}
+#endif
 }
 
 void test_random(bool is_cpu){
@@ -213,6 +226,7 @@ void test_random(bool is_cpu){
 		a.random(100);
 		a.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_random:" << endl;
@@ -221,6 +235,7 @@ void test_random(bool is_cpu){
 		a.random(100);
 		a.display();
 	}	
+#endif
 }
 
 // void test_self_transpose(bool is_cpu){
@@ -264,14 +279,15 @@ void test_transpose(bool is_cpu){
 		b.init(Dim2, Dim1);
 		a.random(100);
 		
-		cout << "before gpu a" << endl;
+		cout << "before cpu a" << endl;
 		a.display();
 		
 		b.transpose(a);
-		cout << "after gpu b" << endl;
+		cout << "after cpu b" << endl;
 		b.display();
 		
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_transpose:" << endl;
@@ -288,6 +304,7 @@ void test_transpose(bool is_cpu){
 		cout << "after gpu b" << endl;
 		b.display();
 	}
+#endif
 }
 
 void test_product(bool is_cpu){
@@ -310,6 +327,7 @@ void test_product(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();	
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_product:" << endl;
@@ -366,6 +384,7 @@ void test_product(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#endif
 }
 
 void test_add(bool is_cpu){
@@ -388,6 +407,7 @@ void test_add(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_add:" << endl;
@@ -408,6 +428,7 @@ void test_add(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#endif
 }
 
 void test_sub(bool is_cpu){
@@ -431,6 +452,7 @@ void test_sub(bool is_cpu){
 		cout <<  "c" << endl; c.display();
 		
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_sub:" << endl;
@@ -451,6 +473,7 @@ void test_sub(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#endif
 }
 
 void test_multiply(bool is_cpu){
@@ -474,6 +497,7 @@ void test_multiply(bool is_cpu){
 		cout <<  "c" << endl; c.display();
 		
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_mutli:" << endl;
@@ -494,6 +518,7 @@ void test_multiply(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#endif
 }
 
 void test_divide(bool is_cpu){
@@ -517,6 +542,7 @@ void test_divide(bool is_cpu){
 		cout <<  "c" << endl; c.display();
 		
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_divide:" << endl;
@@ -537,6 +563,7 @@ void test_divide(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "c" << endl; c.display();
 	}
+#endif
 }
 
 void test_self_add(bool is_cpu){
@@ -559,6 +586,7 @@ void test_self_add(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_self_add:" << endl;
@@ -580,6 +608,7 @@ void test_self_add(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_self_sub(bool is_cpu){
@@ -603,6 +632,7 @@ void test_self_sub(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_self_sub:" << endl;
@@ -624,6 +654,7 @@ void test_self_sub(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_self_multiply(bool is_cpu){
@@ -647,6 +678,7 @@ void test_self_multiply(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_self_sub:" << endl;
@@ -668,6 +700,7 @@ void test_self_multiply(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_self_divide(bool is_cpu){
@@ -691,6 +724,7 @@ void test_self_divide(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_self_divide:" << endl;
@@ -712,6 +746,7 @@ void test_self_divide(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_tanh(bool is_cpu){
@@ -734,6 +769,7 @@ void test_tanh(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_tanh:" << endl;
@@ -754,6 +790,7 @@ void test_tanh(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_assign(dtype value, bool is_cpu){
@@ -773,6 +810,7 @@ void test_assign(dtype value, bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "a" << endl; a.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_scale_assign:" << endl;
@@ -790,6 +828,7 @@ void test_assign(dtype value, bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "a" << endl; a.display();
 	}
+#endif
 }
 
 
@@ -811,6 +850,7 @@ void test_lookup(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_lookup:" << endl;
@@ -829,6 +869,7 @@ void test_lookup(bool is_cpu){
 		cout << "after" << endl;
 		cout <<  "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_concat(bool is_cpu){
@@ -851,6 +892,7 @@ void test_concat(bool is_cpu){
 		
 		cout << "res " << endl; b.display();
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_concat:" << endl;
@@ -871,6 +913,7 @@ void test_concat(bool is_cpu){
 		
 		cout << "res " << endl; b.display();
 	}
+#endif
 }
 
 void test_drop_out(dtype drop_value, bool is_cpu){
@@ -892,6 +935,7 @@ void test_drop_out(dtype drop_value, bool is_cpu){
 		cout << "mask" << endl; mask.display();
 		cout << "b" << endl; b.display();
 	}
+#if USE_GPU
 	else{
 		cout << "this is gpu drop out" << endl;
 		gpu_matrix a;
@@ -910,6 +954,7 @@ void test_drop_out(dtype drop_value, bool is_cpu){
 		cout << "mask" << endl; mask.display();
 		cout << "b" << endl; b.display();
 	}
+#endif
 }
 
 void test_max_pooling_helper(bool is_cpu){
@@ -935,6 +980,7 @@ void test_max_pooling_helper(bool is_cpu){
 			cout << "cpu mask " << i << endl;mask[i].display();
 		}
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_max_pooling_help:" << endl;
@@ -958,6 +1004,7 @@ void test_max_pooling_helper(bool is_cpu){
 			cout << "gpu mask " << i << endl;mask[i].display();
 		}
 	}
+#endif
 }
 
 void test_min_pooling_helper(bool is_cpu){
@@ -983,6 +1030,7 @@ void test_min_pooling_helper(bool is_cpu){
 			cout << "cpu mask " << i << endl;mask[i].display();
 		}
 	}
+#if USE_GPU
 	else
 	{
 		cout << "this is gpu_main_pooling_help:" << endl;
@@ -1006,6 +1054,7 @@ void test_min_pooling_helper(bool is_cpu){
 			cout << "gpu mask " << i << endl;mask[i].display();
 		}
 	}
+#endif
 }
 
 void speed_test_zeros(bool is_cpu){
@@ -1022,6 +1071,7 @@ void speed_test_zeros(bool is_cpu){
 		std::cout << "cpu_test_zeros: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1035,6 +1085,7 @@ void speed_test_zeros(bool is_cpu){
 		std::cout << "gpu_test_zeros: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_ones(bool is_cpu){
@@ -1051,6 +1102,7 @@ void speed_test_ones(bool is_cpu){
 		std::cout << "cpu_test_ones: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1064,6 +1116,7 @@ void speed_test_ones(bool is_cpu){
 		std::cout << "gpu_test_ones: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_assign(int icol, int jrow, dtype value, bool is_cpu){
@@ -1080,6 +1133,7 @@ void speed_test_assign(int icol, int jrow, dtype value, bool is_cpu){
 		std::cout << "cpu_test_assign_one_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		cpu_matrix a;
 		a.init(dm1, dm2);
@@ -1093,6 +1147,7 @@ void speed_test_assign(int icol, int jrow, dtype value, bool is_cpu){
 		std::cout << "gpu_test_assign_one_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_get(int icol, int jrow, bool is_cpu){
@@ -1109,6 +1164,7 @@ void speed_test_get(int icol, int jrow, bool is_cpu){
 		std::cout << "cpu_test_get_one_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		cpu_matrix a;
 		a.init(dm1, dm2);
@@ -1122,9 +1178,11 @@ void speed_test_get(int icol, int jrow, bool is_cpu){
 		std::cout << "gpu_test_get_one_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_op_equal(){
+#if USE_GPU
 	if(true){
 		cpu_matrix a;
 		a.init(dm1, dm2);
@@ -1159,6 +1217,8 @@ void speed_test_op_equal(){
 		std::cout << diff.count() << std::endl;
 	}
 	
+#endif
+
 	if(true){
 		cpu_matrix a;
 		a.init(dm1, dm2);
@@ -1175,7 +1235,8 @@ void speed_test_op_equal(){
 		std::cout << "cpu = cpu: ";
 		std::cout << diff.count() << std::endl;
 	}
-	
+
+#if USE_GPU
 	if(true){
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1192,6 +1253,7 @@ void speed_test_op_equal(){
 		std::cout << "gpu = gpu: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_transpose(bool is_cpu){
@@ -1211,6 +1273,7 @@ void speed_test_transpose(bool is_cpu){
 		std::cout << "cpu-transpose: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1227,6 +1290,7 @@ void speed_test_transpose(bool is_cpu){
 		std::cout << "gpu-transpose: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_add(bool is_cpu){
@@ -1249,6 +1313,7 @@ void speed_test_add(bool is_cpu){
 		std::cout << "cpu_add: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1268,6 +1333,7 @@ void speed_test_add(bool is_cpu){
 		std::cout << "gpu_add: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_sub(bool is_cpu){
@@ -1290,6 +1356,7 @@ void speed_test_sub(bool is_cpu){
 		std::cout << "cpu_sub: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1309,6 +1376,7 @@ void speed_test_sub(bool is_cpu){
 		std::cout << "gpu_sub: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_multiply(bool is_cpu){
@@ -1331,6 +1399,7 @@ void speed_test_multiply(bool is_cpu){
 		std::cout << "cpu_multiply: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1350,6 +1419,7 @@ void speed_test_multiply(bool is_cpu){
 		std::cout << "gpu_multiply: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_product(bool is_cpu){
@@ -1372,6 +1442,7 @@ void speed_test_product(bool is_cpu){
 		std::cout << "cpu_product: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1391,6 +1462,7 @@ void speed_test_product(bool is_cpu){
 		std::cout << "gpu_product: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_divide(bool is_cpu){
@@ -1413,6 +1485,7 @@ void speed_test_divide(bool is_cpu){
 		std::cout << "cpu_divide: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1432,6 +1505,7 @@ void speed_test_divide(bool is_cpu){
 		std::cout << "gpu_divide: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_self_add(bool is_cpu){
@@ -1451,6 +1525,7 @@ void speed_test_self_add(bool is_cpu){
 		std::cout << "cpu_self_add: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1467,6 +1542,7 @@ void speed_test_self_add(bool is_cpu){
 		std::cout << "gpu_self_add: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_self_sub(bool is_cpu){
@@ -1486,6 +1562,7 @@ void speed_test_self_sub(bool is_cpu){
 		std::cout << "cpu_self_sub: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1502,6 +1579,7 @@ void speed_test_self_sub(bool is_cpu){
 		std::cout << "gpu_self_sub: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_self_multiply(bool is_cpu){
@@ -1521,6 +1599,7 @@ void speed_test_self_multiply(bool is_cpu){
 		std::cout << "cpu_self_multiply: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1537,6 +1616,7 @@ void speed_test_self_multiply(bool is_cpu){
 		std::cout << "gpu_self_multiply: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_self_divide(bool is_cpu){
@@ -1556,6 +1636,7 @@ void speed_test_self_divide(bool is_cpu){
 		std::cout << "cpu_self_divide: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1572,6 +1653,7 @@ void speed_test_self_divide(bool is_cpu){
 		std::cout << "gpu_self_divide: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_tanh(bool is_cpu){
@@ -1591,6 +1673,7 @@ void speed_test_tanh(bool is_cpu){
 		std::cout << "cpu_tanh: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1607,6 +1690,7 @@ void speed_test_tanh(bool is_cpu){
 		std::cout << "gpu_tanh: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_assign(dtype value, bool is_cpu){
@@ -1624,6 +1708,7 @@ void speed_test_assign(dtype value, bool is_cpu){
 		std::cout << "cpu_assign_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1638,6 +1723,7 @@ void speed_test_assign(dtype value, bool is_cpu){
 		std::cout << "gpu_assign_value: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_lookup(bool is_cpu){
@@ -1657,6 +1743,7 @@ void speed_test_lookup(bool is_cpu){
 		std::cout << "cpu_lookup: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1673,6 +1760,7 @@ void speed_test_lookup(bool is_cpu){
 		std::cout << "gpu_lookup: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_concat(bool is_cpu){
@@ -1694,6 +1782,7 @@ void speed_test_concat(bool is_cpu){
 		std::cout << "cpu_concat: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		vector<gpu_matrix> vec_a;
 		vec_a.resize(10);
@@ -1712,6 +1801,7 @@ void speed_test_concat(bool is_cpu){
 		std::cout << "gpu_concat: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_drop_out(dtype drop_value, bool is_cpu){
@@ -1735,6 +1825,7 @@ void speed_test_drop_out(dtype drop_value, bool is_cpu){
 		std::cout << "cpu_drop_out: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		gpu_matrix a;
 		a.init(dm1, dm2);
@@ -1755,6 +1846,7 @@ void speed_test_drop_out(dtype drop_value, bool is_cpu){
 		std::cout << "gpu_drop_out: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_max_pooling_helper(bool is_cpu){
@@ -1779,6 +1871,7 @@ void speed_test_max_pooling_helper(bool is_cpu){
 		std::cout << "cpu_max_pooling: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		vector<gpu_matrix> vec_a;
 		vec_a.resize(10);
@@ -1800,6 +1893,7 @@ void speed_test_max_pooling_helper(bool is_cpu){
 		std::cout << "gpu_max_pooling: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }
 
 void speed_test_min_pooling_helper(bool is_cpu){
@@ -1824,6 +1918,7 @@ void speed_test_min_pooling_helper(bool is_cpu){
 		std::cout << "cpu_min_pooling: ";
 		std::cout << diff.count() << std::endl;
 	}
+#if USE_GPU
 	else{
 		vector<gpu_matrix> vec_a;
 		vec_a.resize(10);
@@ -1845,4 +1940,5 @@ void speed_test_min_pooling_helper(bool is_cpu){
 		std::cout << "gpu_min_pooling: ";
 		std::cout << diff.count() << std::endl;
 	}
+#endif
 }

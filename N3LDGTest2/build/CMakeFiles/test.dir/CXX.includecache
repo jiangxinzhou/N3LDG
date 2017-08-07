@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/data/xzjiang/GPU-study/N3LDG/cnmem/include/cnmem.h
+cstdio
+/data/xzjiang/GPU-study/N3LDG/cnmem/include/cstdio
+stdio.h
+/data/xzjiang/GPU-study/N3LDG/cnmem/include/stdio.h
+cuda_runtime_api.h
+/data/xzjiang/GPU-study/N3LDG/cnmem/include/cuda_runtime_api.h
+
 /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Cholesky
 Core
 /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Core
@@ -1503,14 +1511,14 @@ unsupported/Eigen/CXX11/Tensor
 -
 cstring
 -
-gpu_matrix.h
-/data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h
 functors.h
 /data/xzjiang/GPU-study/N3LDG/matrix/functors.h
 iostream
 -
 vector
 -
+gpu_matrix.h
+/data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h
 
 /data/xzjiang/GPU-study/N3LDG/matrix/functors.h
 
@@ -1571,14 +1579,6 @@ iostream
 -
 chrono
 -
-
-/data/xzjiang/GPU-study/cnmem/include/cnmem.h
-cstdio
-/data/xzjiang/GPU-study/cnmem/include/cstdio
-stdio.h
-/data/xzjiang/GPU-study/cnmem/include/stdio.h
-cuda_runtime_api.h
-/data/xzjiang/GPU-study/cnmem/include/cuda_runtime_api.h
 
 /usr/local/cuda-8.0/include/builtin_types.h
 device_types.h

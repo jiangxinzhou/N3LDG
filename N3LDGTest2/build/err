@@ -6,7 +6,7 @@ In file included from /usr/include/c++/4.8/cassert:43:0,
                  from /data/xzjiang/GPU-study/N3LDGTest2/test.h:4,
                  from /data/xzjiang/GPU-study/N3LDGTest2/test.cc:1:
 /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h: In member function ‘void cpu_matrix::concat(const std::vector<cpu_matrix>&)’:
-/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:126:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:142:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    assert(col == rhs_vec.size());
                               ^
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc: In function ‘void test_concat(bool)’:
@@ -16,18 +16,6 @@ In file included from /usr/include/c++/4.8/cassert:43:0,
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc:861:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    for(int i=0; i<vec_a.size(); i++){
                              ^
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc: In function ‘void test_drop_out(dtype, bool)’:
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc:890:32: error: no matching function for call to ‘cpu_matrix::dropout(cpu_matrix&, cpu_matrix&, dtype&)’
-   b.dropout(a, mask, drop_value);
-                                ^
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc:890:32: note: candidate is:
-In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:19:0,
-                 from /data/xzjiang/GPU-study/N3LDGTest2/test.h:4,
-                 from /data/xzjiang/GPU-study/N3LDGTest2/test.cc:1:
-/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:113:7: note: void cpu_matrix::dropout(const cpu_matrix&, cpu_matrix&, dtype, int)
-  void dropout(const cpu_matrix &rhs, cpu_matrix &drop_mask, dtype drop_value, int seed){
-       ^
-/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:113:7: note:   candidate expects 4 arguments, 3 provided
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc: In function ‘void test_max_pooling_helper(bool)’:
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc:920:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    for(int i=0; i<vec_a.size(); i++){
@@ -73,18 +61,6 @@ In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:19:0,
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc:1700:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    for(int i=0; i<vec_a.size(); i++){
                              ^
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc: In function ‘void speed_test_drop_out(dtype, bool)’:
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc:1731:33: error: no matching function for call to ‘cpu_matrix::dropout(cpu_matrix&, cpu_matrix&, dtype&)’
-    b.dropout(a, mask, drop_value);
-                                 ^
-/data/xzjiang/GPU-study/N3LDGTest2/test.cc:1731:33: note: candidate is:
-In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:19:0,
-                 from /data/xzjiang/GPU-study/N3LDGTest2/test.h:4,
-                 from /data/xzjiang/GPU-study/N3LDGTest2/test.cc:1:
-/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:113:7: note: void cpu_matrix::dropout(const cpu_matrix&, cpu_matrix&, dtype, int)
-  void dropout(const cpu_matrix &rhs, cpu_matrix &drop_mask, dtype drop_value, int seed){
-       ^
-/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:113:7: note:   candidate expects 4 arguments, 3 provided
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc: In function ‘void speed_test_max_pooling_helper(bool)’:
 /data/xzjiang/GPU-study/N3LDGTest2/test.cc:1767:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    for(int i=0; i<vec_a.size(); i++){
@@ -106,6 +82,21 @@ In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:9:0,
 /usr/local/cuda-8.0/samples/common/inc/helper_cuda.h:295:20: warning: ‘const char* _cudaGetErrorEnum(CUresult)’ defined but not used [-Wunused-function]
  static const char *_cudaGetErrorEnum(CUresult error)
                     ^
-make[2]: *** [CMakeFiles/test.dir/test.cc.o] Error 1
-make[1]: *** [CMakeFiles/test.dir/all] Error 2
-make: *** [all] Error 2
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Core:261,
+                 from /data/xzjiang/GPU-study/N3LDG/eigen/Eigen/Dense:1,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:4,
+                 from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:19,
+                 from /data/xzjiang/GPU-study/N3LDGTest2/test.h:4,
+                 from /data/xzjiang/GPU-study/N3LDGTest2/main.cc:1:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h: In member function ‘void cpu_matrix::concat(const std::vector<cpu_matrix>&)’:
+/data/xzjiang/GPU-study/N3LDG/matrix/cpu_matrix.h:142:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   assert(col == rhs_vec.size());
+                              ^
+In file included from /data/xzjiang/GPU-study/N3LDG/matrix/gpu_matrix.h:9:0,
+                 from /data/xzjiang/GPU-study/N3LDGTest2/test.h:4,
+                 from /data/xzjiang/GPU-study/N3LDGTest2/main.cc:1:
+/usr/local/cuda-8.0/samples/common/inc/helper_cuda.h: At global scope:
+/usr/local/cuda-8.0/samples/common/inc/helper_cuda.h:295:20: warning: ‘const char* _cudaGetErrorEnum(CUresult)’ defined but not used [-Wunused-function]
+ static const char *_cudaGetErrorEnum(CUresult error)
+                    ^

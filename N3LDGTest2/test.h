@@ -1,7 +1,10 @@
 #ifndef _TEST_
 #define _TEST_
 
+#if USE_GPU
 #include "gpu_matrix.h"
+#endif
+
 #include "cpu_matrix.h"
 
 #include <iostream>
@@ -15,7 +18,7 @@ const int Dim2 = 5;
 const int Dim3 = 4;
 
 static int dm1 = 300;
-static int dm2 = 10000;
+static int dm2 = 500;
 static int dm3 = 400;
 
 static int cnt = 10000;

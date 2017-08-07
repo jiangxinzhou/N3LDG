@@ -57,6 +57,7 @@ include matrix/CMakeFiles/matrix.dir/progress.make
 # Include the compile flags for this target's objects.
 include matrix/CMakeFiles/matrix.dir/flags.make
 
+matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../cnmem/include/cnmem.h
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../eigen/Eigen/Cholesky
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../eigen/Eigen/Core
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../eigen/Eigen/Dense
@@ -298,7 +299,6 @@ matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../matrix/cpu_mat
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../matrix/functors.h
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../matrix/gpu_matrix.cu
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: ../matrix/gpu_matrix.h
-matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: /data/xzjiang/GPU-study/cnmem/include/cnmem.h
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: /usr/include/_G_config.h
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: /usr/include/alloca.h
 matrix/CMakeFiles/matrix.dir/matrix_generated_gpu_matrix.cu.o: /usr/include/asm-generic/errno-base.h

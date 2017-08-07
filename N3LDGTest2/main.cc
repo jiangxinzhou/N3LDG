@@ -11,7 +11,9 @@ int main(int argc, char **argv){
 	// dm1 = atoi(argv[2]);
 	// dm2 = atoi(argv[3]);
 	// dm3 = atoi(argv[4]);
+#if USE_GPU	
 	InitGPU(DEVICE::getInstance());
+#endif
 	
 	cout << "count: " << cnt << endl; 
 	cout << "dm1: " << dm1 << " dm2: " << dm2 << " dm3: " << dm3 << endl;
@@ -30,15 +32,15 @@ int main(int argc, char **argv){
 	speed_test_self_divide();
 	speed_test_product();
 	speed_test_tanh();
-	 speed_test_assign(10);
+	speed_test_assign(10);
 	speed_test_lookup();
-	 speed_test_concat();
+	speed_test_concat();
 	speed_test_drop_out(0.33);
 	speed_test_max_pooling_helper();
 	speed_test_min_pooling_helper();
 	
 	speed_test_op_equal();
-	
+#if USE_GPU	
 	speed_test_zeros(false);
 	speed_test_ones(false);
 	speed_test_assign(1, 1, 10, false);
@@ -60,7 +62,7 @@ int main(int argc, char **argv){
 	speed_test_drop_out(0.33, false);
 	speed_test_max_pooling_helper(false);
 	speed_test_min_pooling_helper(false);
-	
+#endif	
 	cout << endl;
 	
 	
@@ -91,6 +93,7 @@ int main(int argc, char **argv){
 	
 	test_op_equal();
 	
+#if USE_GPU
 	test_zeros(false);
 	test_ones(false);
 	test_assign(1, 1, 10, false);
@@ -114,8 +117,11 @@ int main(int argc, char **argv){
 	test_drop_out(0.33, false);
 	test_max_pooling_helper(false);
 	test_min_pooling_helper(false);
+#endif	
 	
-	
+#if USE_GPU 
 	FinalizeGPU();
+#endif
+
 	return 0;
 }
